@@ -7,10 +7,33 @@ export const LANGUAGES: Language[] = [
     extension: '.cpp',
     codemirrorId: 'cpp',
     defaultCode: `#include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
 
 int main() {
+    // This is a sample C++ program
     cout << "Hello, World!" << endl;
+    
+    // Create a vector of numbers
+    vector<int> numbers = {1, 2, 3, 4, 5};
+    
+    // Print all numbers
+    cout << "Numbers: ";
+    for (int num : numbers) {
+        cout << num << " ";
+    }
+    cout << endl;
+    
+    // String manipulation
+    string message = "Welcome to CodeForge!";
+    cout << message << endl;
+    
+    // Simple calculation
+    int a = 10, b = 20;
+    int sum = a + b;
+    cout << "Sum: " << sum << endl;
+    
     return 0;
 }`
   },
@@ -121,4 +144,5 @@ export const getLanguageById = (id: string): Language | undefined => {
 export const getDefaultLanguage = (): Language => {
   return LANGUAGES[0];
 };
+
 

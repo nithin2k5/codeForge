@@ -116,18 +116,65 @@ export default function CodeEditor({
         }),
         EditorView.theme({
           '&': {
-            height,
+            height: '100%',
             fontSize: '14px',
             fontFamily: '"JetBrains Mono", "Fira Code", "Monaco", monospace',
+            border: '1px solid var(--theme-border)',
+            borderRadius: '8px',
+          },
+          '&.cm-editor': {
+            height: '100%',
           },
           '.cm-scroller': {
             fontFamily: 'inherit',
+            overflow: 'auto',
+            height: '100%',
+            maxHeight: '100%',
           },
           '.cm-content': {
             fontFamily: 'inherit',
+            padding: '12px',
           },
           '.cm-editor': {
             outline: 'none',
+            height: '100%',
+          },
+          '.cm-focused': {
+            outline: 'none',
+          },
+          '.cm-editor.cm-focused': {
+            outline: 'none',
+            borderColor: 'var(--theme-primary)',
+            boxShadow: '0 0 0 2px rgba(59, 130, 246, 0.1)',
+          },
+          '.cm-gutters': {
+            backgroundColor: 'transparent',
+            border: 'none',
+            paddingRight: '8px',
+          },
+          '.cm-lineNumbers .cm-gutterElement': {
+            padding: '0 8px 0 12px',
+            fontSize: '13px',
+            color: 'var(--theme-text-secondary)',
+          },
+          '.cm-scroller::-webkit-scrollbar': {
+            width: '8px',
+            height: '8px',
+          },
+          '.cm-scroller::-webkit-scrollbar-track': {
+            background: 'var(--theme-surface)',
+            borderRadius: '4px',
+          },
+          '.cm-scroller::-webkit-scrollbar-thumb': {
+            backgroundColor: 'var(--theme-border)',
+            borderRadius: '4px',
+            border: '1px solid transparent',
+          },
+          '.cm-scroller::-webkit-scrollbar-thumb:hover': {
+            backgroundColor: 'var(--theme-text-secondary)',
+          },
+          '.cm-scroller::-webkit-scrollbar-corner': {
+            background: 'var(--theme-surface)',
           },
         }),
         EditorView.lineWrapping,
@@ -202,10 +249,12 @@ export default function CodeEditor({
   return (
     <div
       ref={editorRef}
-      className={`border rounded-md overflow-hidden focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 ${className}`}
+      className={`h-full w-full ${className}`}
       style={{
         backgroundColor: theme === 'dark' ? '#1e1e1e' : '#ffffff',
-        borderColor: theme === 'dark' ? '#3e3e3e' : '#d1d5db'
+        height: height === '100%' ? '100%' : height,
+        overflow: 'hidden',
+        position: 'relative'
       }}
     />
   );

@@ -248,9 +248,9 @@ export default function CompilerLayout() {
               </div>
             </div>
 
-            {/* Enhanced Code Editor - Full Height */}
-            <div className="flex-1 theme-border border rounded-xl overflow-hidden shadow-inner">
-              <div className="theme-surface px-4 py-3 theme-border border-b flex-shrink-0">
+            {/* Enhanced Code Editor - Equal Height to Output Terminal */}
+            <div className="flex-1 flex flex-col min-h-0">
+              <div className="theme-surface px-4 py-3 theme-border border rounded-t-xl border-b flex-shrink-0">
                 <div className="flex items-center space-x-3">
                   <div className="flex space-x-1.5">
                     <div className="w-3.5 h-3.5 rounded-full bg-red-500 shadow-sm" />
